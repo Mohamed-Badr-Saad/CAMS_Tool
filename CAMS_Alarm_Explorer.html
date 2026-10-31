@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CAMS Alarm Explorer</title>
+<meta name="author" content="Mohamed Badr">
+<meta name="description" content="CAMS Alarm Explorer for Yokogawa CENTUM VP: browse alarms, setpoints, priorities and statistics from a CAMS export. Developed by Mohamed Badr.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -207,6 +209,8 @@ button{font:inherit;color:inherit}
 #ctip{position:fixed;z-index:130;pointer-events:none;background:var(--panel2);border:1px solid var(--line);border-radius:7px;padding:7px 10px;font-size:12.5px;box-shadow:0 8px 24px rgba(0,0,0,.3);display:none;max-width:320px;line-height:1.5}
 #ctip b{font-family:var(--mono)}
 #ctip .hint{color:var(--muted);font-size:11px;margin-top:3px}
+.credit{flex:none;text-align:center;font-size:11.5px;color:var(--muted);padding:6px 16px;border-top:1px solid var(--line);background:var(--panel)}
+.credit b{color:var(--text);font-weight:600}
 [hidden]{display:none!important}
 ::-webkit-scrollbar{width:11px;height:11px}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px;border:2px solid var(--bg)}
@@ -260,6 +264,7 @@ button{font:inherit;color:inherit}
   </div>
   <div class="stats" id="stats" hidden></div>
 </section>
+<footer class="credit">CAMS Alarm Explorer · Developed by <b>Mohamed Badr</b></footer>
 <div id="ctip" role="tooltip"></div>
 
 <aside id="drawer" aria-hidden="true"></aside>
