@@ -41,6 +41,7 @@ button{font:inherit;color:inherit}
 .brand small{display:block;font-weight:500;color:var(--muted);font-size:11px;letter-spacing:.6px;text-transform:uppercase}
 .filemeta{color:var(--muted);font-size:12px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .filemeta b{color:var(--text);font-weight:500}
+.filemeta .saved .dot{width:7px;height:7px;vertical-align:1px;margin-right:2px}
 .spacer{flex:1}
 .btn{display:inline-flex;align-items:center;gap:7px;background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:6px 11px;cursor:pointer;font-size:13px;white-space:nowrap}
 .btn:hover{border-color:var(--accent)}
@@ -227,6 +228,10 @@ button{font:inherit;color:inherit}
 .credit a{color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin:0 6px;font-weight:500}
 .credit a:hover{text-decoration:underline}
 .credit a svg{width:13px;height:13px}
+.mbox.small{width:min(460px,100%)}
+.mact{display:flex;justify-content:flex-end;gap:8px;margin-top:14px}
+.btn.danger{background:var(--danger);border-color:var(--danger);color:#fff;font-weight:600}
+.btn.danger:hover{filter:brightness(1.1)}
 .modal{position:fixed;inset:0;z-index:150;background:rgba(3,6,10,.62);display:flex;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(2px)}
 .mbox{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,.5);width:min(980px,100%);max-height:100%;overflow:auto}
 .mhead{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 12px;border-bottom:1px solid var(--line)}
@@ -241,6 +246,41 @@ button{font:inherit;color:inherit}
 .refbtn{font-size:12.5px;padding:5px 10px;flex:none;color:var(--accent)}
 .linkbtn.inl{padding:0;font-size:inherit;text-decoration:underline dotted}
 .std{cursor:pointer}
+.subtabs{display:inline-flex;gap:2px;padding:3px;background:var(--panel);border:1px solid var(--line);border-radius:9px;margin:2px 0 12px}
+.subtabs button{background:none;border:none;border-radius:6px;padding:6px 14px;cursor:pointer;color:var(--muted);font-weight:500;font-size:13px;display:inline-flex;align-items:center;gap:7px}
+.subtabs button:hover{color:var(--text)}
+.subtabs button.on{background:var(--panel2);color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}
+.subtabs .cnt{font:600 11px var(--mono);background:rgba(240,168,48,.15);color:var(--accent2);border:1px solid rgba(240,168,48,.4);border-radius:9px;padding:0 6px}
+.tile.ok{border-left:4px solid var(--ok)}
+.tile.warn{border-left:4px solid var(--s-dis)}
+.tile .tv small{font-size:15px;color:var(--muted)}
+.arrow{color:var(--faint);margin:0 6px}
+.pl{display:inline-flex;align-items:center;gap:5px}
+.scat{width:100%;height:auto;display:block;max-width:100%}
+.scat .gmaj{stroke:var(--line);stroke-width:1}
+.scat .gmin{stroke:var(--line2);stroke-width:1}
+.scat .tk{fill:var(--muted);font:11px var(--mono)}
+.scat .at{fill:var(--muted);font:12px var(--sans)}
+.scat .diag{stroke:var(--guide);stroke-width:1.5;stroke-dasharray:5 4;opacity:.6}
+.scat .zone{fill:var(--s-dis);opacity:.08}
+.scat .zl{fill:var(--s-dis);font:11.5px var(--sans);opacity:.9}
+.scat .pt{fill:var(--s-one);stroke:var(--panel);stroke-width:2;cursor:pointer}
+.scat .pt.bad{fill:var(--s-dis)}
+.scat .pt:hover{filter:brightness(1.3)}
+.req{width:100%;border-collapse:collapse;font-size:12.5px}
+.req th{text-align:left;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px;padding:6px 8px;border-bottom:1px solid var(--line)}
+.req td{padding:7px 8px;border-bottom:1px solid var(--line2);vertical-align:top}
+.regwrap{max-height:460px;overflow:auto;border:1px solid var(--line2);border-radius:8px}
+.reg{width:100%;border-collapse:collapse;font-size:12.5px}
+.reg th{position:sticky;top:0;background:var(--panel2);text-align:left;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.4px;padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+.reg td{padding:6px 8px;border-bottom:1px solid var(--line2);white-space:nowrap}
+.reg th.ra,.reg td.ra{text-align:right}
+.reg td.b{font-weight:600}
+.reg td.cm{max-width:240px;overflow:hidden;text-overflow:ellipsis}
+.reg td.neg{color:var(--s-dis);font-weight:600}
+.reg tbody tr{cursor:pointer}
+.reg tbody tr:hover td{background:var(--rowhover)}
+.reg tr.bad td:first-child{box-shadow:inset 3px 0 0 var(--s-dis)}
 [hidden]{display:none!important}
 ::-webkit-scrollbar{width:11px;height:11px}
 ::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px;border:2px solid var(--bg)}
@@ -256,6 +296,7 @@ button{font:inherit;color:inherit}
   <div class="filemeta" id="filemeta"></div>
   <div class="spacer"></div>
   <button class="btn" id="btnCols" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><path d="M6 2.5v11M10 2.5v11"/></svg>Columns</button>
+  <button class="btn" id="btnRemove" hidden title="Remove the imported sheet from this browser"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 4h11M6 4V2.5h4V4M4 4l.7 9.5h6.6L12 4M6.8 6.5v4.5M9.2 6.5v4.5"/></svg>Remove import</button>
   <button class="btn" id="btnExport" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M2.5 12.5v1h11v-1"/></svg>Export</button>
   <button class="btn primary" id="btnImport"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 11V2M4.5 5.5L8 2l3.5 3.5M2.5 10.5v3h11v-3"/></svg>Import sheet</button>
   <button class="iconbtn" id="btnTheme" title="Toggle light / dark"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="3.2"/><path d="M8 1v1.6M8 13.4V15M1 8h1.6M13.4 8H15M3 3l1.1 1.1M11.9 11.9L13 13M3 13l1.1-1.1M11.9 4.1L13 3"/></svg></button>
@@ -268,7 +309,7 @@ button{font:inherit;color:inherit}
     <h1>Import a CAMS alarm export</h1>
     <p>Drop the sheet exported from CENTUM VP CAMS Alarm builder here, or browse for it.</p>
     <button class="btn primary" id="btnImport2">Choose file…</button>
-    <div class="hint">Accepts <b>.csv</b> (BKEEdtCAMSAlm export) and <b>.xlsx / .xls</b>.<br>The file is read locally in your browser — nothing is uploaded anywhere.</div>
+    <div class="hint">Accepts <b>.csv</b> (BKEEdtCAMSAlm export) and <b>.xlsx / .xls</b>.<br>The file is read locally in your browser — nothing is uploaded anywhere.<br>The last import is kept in this browser until you click <b>Remove import</b>.</div>
   </div>
 </section>
 
@@ -300,6 +341,14 @@ button{font:inherit;color:inherit}
   <a href="https://www.linkedin.com/in/mohamed-badr-95283b278" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.6 1H2.4C1.6 1 1 1.6 1 2.4v11.2c0 .8.6 1.4 1.4 1.4h11.2c.8 0 1.4-.6 1.4-1.4V2.4c0-.8-.6-1.4-1.4-1.4zM5.2 12.9H3.1V6.2h2.1v6.7zM4.1 5.3c-.7 0-1.2-.6-1.2-1.2S3.5 2.9 4.1 2.9s1.2.6 1.2 1.2-.5 1.2-1.2 1.2zm8.8 7.6h-2.1V9.6c0-.8 0-1.8-1.1-1.8s-1.3.9-1.3 1.8v3.3H6.3V6.2h2v.9c.3-.5 1-1.1 2.1-1.1 2.2 0 2.6 1.5 2.6 3.4v3.5z"/></svg>LinkedIn</a>
 </footer>
 <div id="ctip" role="tooltip"></div>
+<div id="rmModal" class="modal" hidden role="alertdialog" aria-modal="true" aria-labelledby="rmTitle">
+  <div class="mbox small">
+    <div class="mhead"><div><div class="mt" id="rmTitle">Remove the imported sheet?</div>
+      <div class="msub" id="rmSub"></div></div></div>
+    <div class="mfoot"><p>It is deleted from this browser and the app goes back to the start screen, ready for a new import. The file on your PC is not affected.</p>
+      <div class="mact"><button class="btn" id="rmCancel">Cancel</button><button class="btn danger" id="rmOk">Remove import</button></div></div>
+  </div>
+</div>
 <div id="refModal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="refTitle">
   <div class="mbox">
     <div class="mhead">
@@ -468,8 +517,8 @@ function loadXLSX(){
   return xlsxLoading;
 }
 
-async function readFile(file){
-  showOverlay('Reading ' + file.name + '…');
+async function readFile(file, restored){
+  showOverlay((restored ? 'Restoring ' : 'Reading ') + file.name + '…');
   await tick();
   try {
     const buf = await file.arrayBuffer();
@@ -492,10 +541,82 @@ async function readFile(file){
     }
     showOverlay('Indexing ' + (aoa.length-1).toLocaleString() + ' rows…'); await tick();
     build(aoa, file);
+    if (restored) toast(`Restored last import · ${restored.name} · ${S.rows.length.toLocaleString()} alarms`);
+    else saveImport(file);
+    markSaved(restored ? restored.savedAt : null);
   } catch (e) {
     console.error(e);
     toast(e.message || String(e), true);
+    if (restored) dbDel();
   } finally { hideOverlay(); }
+}
+
+/* ---------- keep the last import in this browser (IndexedDB) ---------- */
+function dbOpen(){
+  return new Promise((res, rej) => {
+    try {
+      const r = indexedDB.open('cams-alarm-explorer', 1);
+      r.onupgradeneeded = () => r.result.createObjectStore('imports');
+      r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error);
+    } catch (e) { rej(e); }
+  });
+}
+async function dbTx(mode, fn){
+  const db = await dbOpen();
+  return new Promise((res, rej) => {
+    const tx = db.transaction('imports', mode), st = tx.objectStore('imports');
+    const req = fn(st);
+    tx.oncomplete = () => { db.close(); res(req && req.result); };
+    tx.onerror = tx.onabort = () => { db.close(); rej(tx.error); };
+  });
+}
+const dbGet = () => dbTx('readonly', st => st.get('last')).catch(() => null);
+const dbDel = () => dbTx('readwrite', st => st.delete('last')).catch(() => {});
+let savedInfo = null;
+async function saveImport(file){
+  const rec = { name: file.name, type: file.type, lastModified: file.lastModified || Date.now(), savedAt: Date.now(), blob: file };
+  try {
+    await dbTx('readwrite', st => st.put(rec, 'last'));
+    try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch {}
+    markSaved(rec.savedAt);
+  } catch (e) {
+    console.warn('Could not keep the import in this browser', e);
+    markSaved(false);
+  }
+}
+function markSaved(savedAt){
+  if (savedAt === null) return;            // a fresh import: wait for saveImport()
+  savedInfo = savedAt;
+  const m = $('filemeta'); m.querySelector('.saved')?.remove();
+  const sp = document.createElement('span'); sp.className = 'saved';
+  if (savedAt) {
+    sp.innerHTML = ` · <span class="dot" style="background:var(--ok)"></span> saved in this browser`;
+    sp.title = 'Kept in this browser since ' + new Date(savedAt).toLocaleString() + '. Use Remove import to clear it.';
+  } else {
+    sp.innerHTML = ` · not saved (browser storage unavailable)`;
+  }
+  m.appendChild(sp);
+}
+async function restoreImport(){
+  const rec = await dbGet();
+  if (!rec || !rec.blob) return;
+  const f = rec.blob instanceof File ? rec.blob : new File([rec.blob], rec.name, { type: rec.type, lastModified: rec.lastModified });
+  await readFile(f, rec);
+}
+function openRemove(){
+  $('rmSub').textContent = S ? `${S.file.name} · ${S.rows.length.toLocaleString()} alarms` : '';
+  $('rmModal').hidden = false; $('rmCancel').focus();
+}
+function closeRemove(){ $('rmModal').hidden = true; }
+async function removeImport(){
+  closeRemove();
+  await dbDel();
+  closeDrawer(); closePop(); closeMenu();
+  S = null; view = []; filters = {}; query = ''; selRow = -1; savedInfo = null;
+  $('q').value = ''; $('gbody').innerHTML = ''; $('stats').innerHTML = ''; $('filemeta').innerHTML = '';
+  $('app').hidden = true; $('empty').hidden = false;
+  ['btnCols', 'btnExport', 'btnRemove'].forEach(id => $(id).hidden = true);
+  toast('Import removed — ready for a new sheet');
 }
 
 function findHeader(aoa){
@@ -583,7 +704,7 @@ function build(aoa, file){
   }
 
   $('empty').hidden = true; $('app').hidden = false;
-  $('btnCols').hidden = false; $('btnExport').hidden = false;
+  $('btnCols').hidden = false; $('btnExport').hidden = false; $('btnRemove').hidden = false;
   const tags = tagIndex.size;
   $('filemeta').innerHTML = `<b>${esc(file.name)}</b> · ${rows.length.toLocaleString()} alarms on ${tags.toLocaleString()} tags` +
     (meta.DATA ? ` · exported ${esc(meta.DATA)}` : '');
@@ -945,7 +1066,7 @@ function closeDrawer(){
   if (selRow >= 0) { selRow = -1; if (S) renderRows(true); }
 }
 addEventListener('keydown', e => {
-  if (e.key === 'Escape') { if (!$('refModal').hidden) closeRef(); else if (openPop) closePop(); else if (openMenu) closeMenu(); else closeDrawer(); }
+  if (e.key === 'Escape') { if (!$('rmModal').hidden) closeRemove(); else if (!$('refModal').hidden) closeRef(); else if (openPop) closePop(); else if (openMenu) closeMenu(); else closeDrawer(); }
   if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && S) { e.preventDefault(); $('q').focus(); }
 });
 
@@ -988,8 +1109,9 @@ const fmt = v => v.toLocaleString();
 const prioRank = p => PRIO_ORDER[String(p).toLowerCase()] ?? -1;
 
 function renderStats(){
+  if (statView === 'hma') return renderHMA();
   const { rows, hidx } = S, n = view.length, el = $('stats');
-  if (!n) { el.innerHTML = '<div class="nores">No alarms match the current filters.</div>'; return; }
+  if (!n) { el.innerHTML = subTabsHTML() + '<div class="nores">No alarms match the current filters.</div>'; return; }
   const dI = hidx['Detection'], pI = hidx['Alarm Priority - modified'], poI = hidx['Alarm Priority - original'];
   const cI = hidx['Tag Mark Color - modified'], clI = hidx['Alarm.Class'], hI = hidx['Highly.Managed.Alarm'], spI = hidx['Alarm Setpoint - master'];
   const isEn = r => dI == null || r[dI] === 'Enable';
@@ -1018,7 +1140,7 @@ function renderStats(){
   }
   const dis = n - en;
   const tile = (l, v, s, flt) => `<div class="tile"${flt ? ` data-flt="${esc(JSON.stringify(flt))}" data-tip="${esc('Click to view these alarms')}" style="cursor:pointer"` : ''}><div class="tl">${l}</div><div class="tv">${v}</div><div class="ts">${s}</div></div>`;
-  let h = '<div class="tiles">';
+  let h = subTabsHTML() + '<div class="tiles">';
   h += tile('Alarms', fmt(n), `${fmt(tags.size)} tags · ${(n / tags.size).toFixed(1)} per tag`);
   if (dI != null) {
     h += tile('Enabled', fmt(en), `${pct(en, n)} of alarms`, [['Detection', 'Enable']]);
@@ -1169,6 +1291,222 @@ function renderStats(){
   if (sd) sd.onchange = () => { statDim = sd.value; store.set('statDim', statDim); renderStats(); };
 }
 
+/* =====================================================================
+   Statistics · Highly managed alarms (HMA)
+   ===================================================================== */
+let statView = store.get('statView', 'overview');
+let hmaDim = store.get('hmaDim', 'Controller.Number');
+function subTabsHTML(){
+  const hI = S.hidx['Highly.Managed.Alarm'];
+  let n = 0; if (hI != null) for (const i of view) if (S.rows[i][hI] === 'HMA') n++;
+  const b = (id, label) => `<button data-sv="${id}" class="${statView === id ? 'on' : ''}">${label}</button>`;
+  return `<div class="subtabs" role="tablist">${b('overview', 'Overview')}${hI != null ? b('hma', `Highly managed alarms <span class="cnt">${fmt(n)}</span>`) : ''}</div>`;
+}
+const num = v => { const x = parseFloat(v); return isNaN(x) ? 0 : x; };
+const mins = v => v >= 1440 ? (v / 1440).toFixed(v >= 14400 ? 0 : 1) + ' d' : v >= 120 ? (v / 60).toFixed(v >= 1200 ? 0 : 1) + ' h' : fmt(v) + ' min';
+
+function renderHMA(){
+  const { rows, hidx } = S, el = $('stats');
+  const hI = hidx['Highly.Managed.Alarm'];
+  let h = subTabsHTML();
+  if (hI == null) { el.innerHTML = h + '<div class="nores">This export has no Highly.Managed.Alarm column.</div>'; return; }
+  const H = view.filter(i => rows[i][hI] === 'HMA');
+  if (!H.length) {
+    const total = rows.reduce((a, r) => a + (r[hI] === 'HMA' ? 1 : 0), 0);
+    el.innerHTML = h + `<div class="nores">No highly managed alarms in the current selection${total ? ` (${fmt(total)} in the file — try Reset filters)` : ' or in this export'}.</div>`; return;
+  }
+  const g = (r, k) => hidx[k] != null ? r[hidx[k]] : '';
+  const dI = hidx['Detection'];
+  const isEn = r => dI == null || r[dI] === 'Enable';
+  const docF = ['Cause.Of.Alarm', 'Consequence.If.Alarm.Is.Missed', 'Purpose.Of.Alarm', 'Guidance'].filter(f => hidx[f] != null);
+  const tags = new Set(); let en = 0, raised = 0, lowered = 0, doc = 0, timed = 0, tight = 0, top = 0;
+  const trans = new Map();
+  for (const i of H) {
+    const r = rows[i]; tags.add(r[S.TAG]);
+    if (isEn(r)) en++;
+    const o = g(r, 'Alarm Priority - original'), m = g(r, 'Alarm Priority - modified');
+    if (prioRank(m) > prioRank(o)) raised++; else if (prioRank(m) < prioRank(o)) lowered++;
+    if (prioRank(m) >= 4) top++;
+    const k = normVal(o) + '\u0001' + normVal(m); trans.set(k, (trans.get(k) || 0) + 1);
+    if (docF.length && docF.every(f => !isEmpty(r[hidx[f]]))) doc++;
+    const rt = num(g(r, 'Operator.Response.Time.In.Minutes')), te = num(g(r, 'Time.To.Event.In.Minutes'));
+    if (rt > 0 && te > 0) { timed++; if (te <= rt) tight++; }
+  }
+  const n = H.length, dis = n - en;
+  const tile = (l, v, s, cls = '', flt) => `<div class="tile ${cls}"${flt ? ` data-flt="${esc(JSON.stringify(flt))}" data-tip="${esc('Click to view these alarms')}" style="cursor:pointer"` : ''}><div class="tl">${l}</div><div class="tv">${v}</div><div class="ts">${s}</div></div>`;
+  h += '<div class="tiles">';
+  h += tile('HMA alarms', fmt(n), `${fmt(tags.size)} tags · ${pct(n, view.length, 2)} of alarms in view`, '', [['Highly.Managed.Alarm', 'HMA']]);
+  h += tile('Disabled HMAs', fmt(dis), dis ? 'out of service: interim alarms or procedures required (§15.3.3, p. 73)' : 'every HMA has detection enabled', dis ? 'warn' : 'ok', dis ? [['Highly.Managed.Alarm', 'HMA'], ['Detection', 'Disable']] : null);
+  h += tile('High or Critical', pct(top, n, 0), `${fmt(top)} of ${fmt(n)} HMAs at the top priorities`);
+  h += tile('Priority raised', fmt(raised), `from the original priority${lowered ? ` · ${fmt(lowered)} lowered` : ''}`);
+  if (docF.length) h += tile('Fully documented', pct(doc, n, 0), `cause, consequence, purpose &amp; guidance filled (§6.2.10, p. 41)`, doc === n ? 'ok' : 'warn');
+  if (hidx['Operator.Response.Time.In.Minutes'] != null && hidx['Time.To.Event.In.Minutes'] != null)
+    h += tile('Response fits time', `${fmt(timed - tight)}<small> / ${fmt(timed)}</small>`, tight ? `${fmt(tight)} where the event comes before the response time` : 'every timed HMA responds before the event', tight ? 'warn' : 'ok');
+  h += '</div><div class="cards">';
+
+  // ---- A. response time vs time to event (scatter)
+  const rtI = hidx['Operator.Response.Time.In.Minutes'], teI = hidx['Time.To.Event.In.Minutes'];
+  if (rtI != null && teI != null) {
+    const groups = new Map(); let untimed = 0;
+    for (const i of H) {
+      const r = rows[i], rt = num(r[rtI]), te = num(r[teI]);
+      if (!(rt > 0 && te > 0)) { untimed++; continue; }
+      const k = rt + '|' + te; let gp = groups.get(k); if (!gp) groups.set(k, gp = { rt, te, idx: [] }); gp.idx.push(i);
+    }
+    h += `<div class="card wide"><h2>Operator response time vs time to event</h2>
+      <div class="sub">Each dot is an HMA (bigger dots = several with the same times). The response has to fit inside the time to event: ISA-18.2 defines the allowable response time as the latest moment the operator can act to avoid the consequence (§3.1.33, p. 18; §5.4.4, p. 36).</div>
+      <div class="legend"><span><i style="background:var(--s-one)"></i>Response fits before the event</span><span><i style="background:var(--s-dis)"></i>Event at or before the response time</span><span><i class="guide" style="opacity:.6"></i>Response time = time to event</span></div>
+      ${scatterHMA([...groups.values()])}
+      <div class="foot">Both axes are logarithmic, in minutes. ${tight ? `<b>${fmt(tight)}</b> HMA${tight > 1 ? 's sit' : ' sits'} on or below the line; check the setpoint, the response time or the alarm design.` : 'No HMA sits on or below the line.'} ${untimed ? `${fmt(untimed)} HMA${untimed > 1 ? 's have' : ' has'} no response time or time to event and ${untimed > 1 ? 'are' : 'is'} not plotted.` : ''}</div></div>`;
+  }
+
+  // ---- B. priority: original -> current
+  {
+    const items = [...trans.entries()].sort((a, b) => b[1] - a[1]).map(([k, c]) => {
+      const [o, m] = k.split('\u0001'); const same = o === m;
+      const lab = `${prioLabelS(o)}<span class="arrow">→</span>${prioLabelS(m)}`;
+      return { label: lab, total: c, val: fmt(c), valSub: same ? 'unchanged' : (prioRank(m) > prioRank(o) ? 'raised' : 'lowered'),
+        segs: [{ v: c, cls: same ? 'one' : 'dis', tip: `${prioLabelS(o)} → ${prioLabelS(m)}<br><b>${fmt(c)}</b> HMAs${same ? ' (unchanged)' : ''}`,
+          flt: (o !== '(blank)' && m !== '(blank)') ? [['Highly.Managed.Alarm', 'HMA'], ['Alarm Priority - original', o], ['Alarm Priority - modified', m]] : null }] };
+    });
+    h += `<div class="card"><h2>HMA priority: original → current</h2>
+      <div class="sub">How the priority of each HMA was changed from the original value. ISA-18.2 allows HMA classes to be considered when setting priority (§9.5, p. 49).</div>
+      <div class="legend"><span><i style="background:var(--s-one)"></i>Unchanged</span><span><i style="background:var(--s-dis)"></i>Changed</span></div>
+      ${barsHTML(items)}</div>`;
+  }
+
+  // ---- C. by alarm type
+  const byH = idx => { const m = new Map(); for (const i of H) { const r = rows[i], k = normVal(r[idx]); let o = m.get(k); if (!o) m.set(k, o = { e:0, d:0 }); isEn(r) ? o.e++ : o.d++; } return [...m.entries()].sort((a, b) => (b[1].e + b[1].d) - (a[1].e + a[1].d)); };
+  const stackH = (entries, labelFn, key) => entries.map(([k, o]) => { const t = o.e + o.d; return { label: labelFn(k), total: t, val: fmt(t), valSub: o.d ? pct(o.d, t, 0) + ' off' : '',
+    segs: [{ v:o.e, cls:'en', tip:`${labelFn(k)}<br>Enabled <b>${fmt(o.e)}</b>`, flt: k !== '(blank)' ? [['Highly.Managed.Alarm', 'HMA'], [key, k], ['Detection', 'Enable']] : null },
+           { v:o.d, cls:'dis', tip:`${labelFn(k)}<br>Disabled <b>${fmt(o.d)}</b>`, flt: k !== '(blank)' ? [['Highly.Managed.Alarm', 'HMA'], [key, k], ['Detection', 'Disable']] : null }] }; });
+  const LEG2 = `<div class="legend"><span><i style="background:var(--s-en)"></i>Enabled</span><span><i style="background:var(--s-dis)"></i>Disabled</span></div>`;
+  {
+    const all = byH(S.TYPE);
+    h += `<div class="card"><h2>HMAs by alarm type</h2><div class="sub">${fmt(all.length)} alarm type${all.length === 1 ? '' : 's'}</div>${LEG2}
+      ${barsHTML(stackH(all.slice(0, 15), k => k === '(blank)' ? '<span class="nil">(no type)</span>' : `<span class="type">${esc(k)}</span>`, '@TYPE'))}${otherNote(all.slice(15), 'types')}</div>`;
+  }
+  // ---- D. by dimension
+  {
+    const dims = [['Controller.Number', 'Controller'], ['Alarm Group', 'Alarm Group'], ['Model', 'Model (block type)']].filter(([id]) => hidx[id] != null);
+    if (dims.length) {
+      if (!dims.some(([id]) => id === hmaDim)) hmaDim = dims[0][0];
+      const all = byH(hidx[hmaDim]);
+      h += `<div class="card"><div class="chead"><div><h2>HMAs by ${esc(dims.find(d => d[0] === hmaDim)[1].toLowerCase())}</h2>
+        <div class="sub">${fmt(all.length)} value${all.length === 1 ? '' : 's'}${all.length > 15 ? ' · top 15' : ''}</div></div>
+        <select id="hmaDim">${dims.map(([id, l]) => `<option value="${esc(id)}"${id === hmaDim ? ' selected' : ''}>${esc(l)}</option>`).join('')}</select></div>
+        ${LEG2}${barsHTML(stackH(all.slice(0, 15), k => k === '(blank)' ? '<span class="nil">(blank)</span>' : esc(k), hmaDim))}${otherNote(all.slice(15), 'others')}</div>`;
+    }
+  }
+  // ---- E. documentation completeness
+  {
+    const F = [['Cause.Of.Alarm', 'Cause of alarm'], ['Consequence.If.Alarm.Is.Missed', 'Consequence if missed'], ['Purpose.Of.Alarm', 'Purpose of alarm'],
+      ['Guidance', 'Guidance (operator action)'], ['Operator.Response.Time.In.Minutes', 'Operator response time', v => num(v) > 0],
+      ['Time.To.Event.In.Minutes', 'Time to event', v => num(v) > 0], ['Alarm Setpoint - master', 'Setpoint'],
+      ['Purpose', 'Purpose'], ['Consequence', 'Consequence'], ['Time-to-respond', 'Time-to-respond']]
+      .filter(f => hidx[f[0]] != null && S.colById[f[0]] && S.colById[f[0]].hasData);
+    const items = F.map(([f, l, test]) => { const j = hidx[f]; let c = 0; for (const i of H) if (test ? test(rows[i][j]) : !isEmpty(rows[i][j])) c++;
+      return { label: esc(l), total: c / n * 100, val: pct(c, n, 0), valSub: fmt(c), segs: [{ v: c / n * 100, cls: c === n ? 'en' : 'dis', tip: `${esc(l)}<br><b>${fmt(c)}</b> of ${fmt(n)} HMAs` }] }; });
+    h += `<div class="card"><h2>HMA documentation</h2>
+      <div class="sub">Share of HMAs with each field filled in. HMA classes need more administration and documentation than other alarms (§6.2.10, p. 41); rationalization should record the allowable response time and probable cause (§9.2.2, p. 48).</div>
+      <div class="legend"><span><i style="background:var(--s-en)"></i>All HMAs</span><span><i style="background:var(--s-dis)"></i>Some missing</span></div>
+      ${barsHTML(items, { max:100 })}</div>`;
+  }
+  // ---- F. what the export cannot show
+  {
+    const shI = hidx['Shelving'];
+    const shelvedCfg = shI != null ? H.filter(i => !isEmpty(rows[i][shI])).length : null;
+    const req = [
+      ['Criteria for putting an alarm in an HMA class are defined in the alarm philosophy', '§6.2.10', 41, 'No — alarm philosophy'],
+      ['Testing requirements before a new or changed HMA goes into service', '§13.4.2', 68, 'No — test records'],
+      ['Training documented for new or modified HMAs', '§13.3.3', 67, 'No — training records'],
+      ['Shelving HMAs follows authorization and reauthorization, with records', '§14.3.2', 70, shelvedCfg == null ? 'No' : (shelvedCfg ? `Partly — shelving configured on ${fmt(shelvedCfg)} of ${fmt(n)} HMAs` : 'Partly — no shelving configured on any HMA')],
+      ['Periodic refresher training on each HMA', '§14.4.2–14.4.3', 71, 'No — training records'],
+      ['HMAs are periodically tested; deficiencies repaired or covered by interim measures', '§15.2.3', 72, 'No — test records'],
+      ['An out-of-service HMA has interim alarms or procedures', '§15.3.3', 73, dI != null ? (dis ? `Partly — ${fmt(dis)} HMA${dis === 1 ? '' : 's'} with detection disabled` : 'Partly — no HMA has detection disabled') : 'No'],
+      ['Maintenance staff periodically trained on HMA requirements', '§15.6.2', 73, 'No — training records'],
+    ];
+    h += `<div class="card wide"><h2>ISA-18.2 HMA requirements to track elsewhere</h2>
+      <div class="sub">What ANSI/ISA-18.2-2016 asks for HMAs, and whether this CAMS export can show it. Summarised; check the clause for the exact wording.</div>
+      <table class="req"><thead><tr><th>Requirement (summary)</th><th>Clause</th><th>Page</th><th>In this export?</th></tr></thead><tbody>
+      ${req.map(([t, c, p, x]) => `<tr><td>${esc(t)}</td><td class="mono">${c}</td><td class="mono">${p}</td><td class="${x.startsWith('No') ? 'nil' : ''}">${esc(x)}</td></tr>`).join('')}
+      </tbody></table></div>`;
+  }
+  // ---- G. HMA register
+  {
+    const list = H.map(i => { const r = rows[i], rt = num(g(r, 'Operator.Response.Time.In.Minutes')), te = num(g(r, 'Time.To.Event.In.Minutes'));
+      return { i, r, rt, te, margin: rt > 0 && te > 0 ? te - rt : null }; })
+      .sort((a, b) => (a.margin == null) - (b.margin == null) || (a.margin ?? 0) - (b.margin ?? 0) || a.r[S.TAG].localeCompare(b.r[S.TAG]));
+    const rowsH = list.map(({ i, r, rt, te, margin }) => {
+      const o = g(r, 'Alarm Priority - original'), m = g(r, 'Alarm Priority - modified');
+      const sp = g(r, 'Alarm Setpoint - master'), un = g(r, 'Unit');
+      return `<tr data-open="${i}" class="${margin != null && margin <= 0 ? 'bad' : ''}">
+        <td class="mono b">${esc(r[S.TAG])}</td><td>${r[S.TYPE] ? `<span class="type">${esc(r[S.TYPE])}</span>` : ''}</td>
+        <td class="cm" title="${esc(g(r, 'Tag Comment'))}">${esc(g(r, 'Tag Comment'))}</td>
+        <td>${o !== m && !isEmpty(o) ? `${prioLabelS(o)}<span class="arrow">→</span>` : ''}${prioLabelS(m)}</td>
+        <td>${detHTML(g(r, 'Detection'))}</td>
+        <td class="mono ra">${isEmpty(sp) ? '<span class="nil">—</span>' : esc(sp) + (isEmpty(un) ? '' : ` <span class="nil">${esc(un)}</span>`)}</td>
+        <td class="mono ra">${rt > 0 ? mins(rt) : '<span class="nil">—</span>'}</td>
+        <td class="mono ra">${te > 0 ? mins(te) : '<span class="nil">—</span>'}</td>
+        <td class="mono ra ${margin != null && margin <= 0 ? 'neg' : ''}">${margin == null ? '<span class="nil">—</span>' : mins(Math.abs(margin)).replace(/^/, margin < 0 ? '−' : '')}</td>
+        <td class="mono">${esc(g(r, 'Controller.Number'))}</td><td>${esc(g(r, 'Alarm Group'))}</td></tr>`;
+    }).join('');
+    h += `<div class="card wide"><h2>HMA register</h2>
+      <div class="sub">All ${fmt(n)} HMAs in the current selection, tightest response margin first (margin = time to event − operator response time). Click a row to open it in the Alarms tab.</div>
+      <div class="regwrap"><table class="reg"><thead><tr><th>Tag</th><th>Type</th><th>Tag comment</th><th>Priority</th><th>Detection</th><th class="ra">Setpoint</th><th class="ra">Response</th><th class="ra">Time to event</th><th class="ra">Margin</th><th>Controller</th><th>Alarm group</th></tr></thead>
+      <tbody>${rowsH}</tbody></table></div></div>`;
+  }
+  h += '</div>';
+  el.innerHTML = h;
+  const hd = $('hmaDim');
+  if (hd) hd.onchange = () => { hmaDim = hd.value; store.set('hmaDim', hmaDim); renderStats(); };
+}
+function prioLabelS(p){
+  return p === '(blank)' || isEmpty(p) ? '<span class="nil">(blank)</span>' :
+    `<span class="pl"><span class="dot" style="background:${PRIO_COLOR[String(p).toLowerCase()] || 'var(--muted)'}"></span>${esc(p)}</span>`;
+}
+function scatterHMA(groups){
+  if (!groups.length) return '<div class="nores" style="padding:18px">No HMAs with both times recorded.</div>';
+  const W = Math.max(560, Math.round(($('stats').clientWidth || 1200) - 70)), H = 380, m = { l:64, r:18, t:12, b:46 };
+  const maxV = Math.max(...groups.map(g => Math.max(g.rt, g.te)));
+  const lo = 0, hi = Math.ceil(Math.log10(maxV * 1.05));
+  const lg = v => Math.log10(v);
+  const sx = v => m.l + (lg(v) - lo) / (hi - lo) * (W - m.l - m.r);
+  const sy = v => H - m.b - (lg(v) - lo) / (hi - lo) * (H - m.t - m.b);
+  let s = `<svg class="scat" viewBox="0 0 ${W} ${H}" role="img" aria-label="Scatter of operator response time against time to event for highly managed alarms">`;
+  // region where time to event <= response time
+  s += `<polygon points="${sx(1)},${sy(1)} ${sx(10 ** hi)},${sy(10 ** hi)} ${sx(10 ** hi)},${sy(1)}" class="zone"/>`;
+  for (let d = lo; d <= hi; d++) {
+    for (const k of [1, 2, 5]) { const v = k * 10 ** d; if (v > 10 ** hi) break;
+      const major = k === 1;
+      s += `<line x1="${sx(v)}" x2="${sx(v)}" y1="${m.t}" y2="${H - m.b}" class="${major ? 'gmaj' : 'gmin'}"/><line y1="${sy(v)}" y2="${sy(v)}" x1="${m.l}" x2="${W - m.r}" class="${major ? 'gmaj' : 'gmin'}"/>`;
+      if (major) {
+        const lab = v >= 1000 ? (v / 1000) + 'k' : v;
+        s += `<text x="${sx(v)}" y="${H - m.b + 16}" class="tk" text-anchor="middle">${lab}</text><text x="${m.l - 8}" y="${sy(v) + 4}" class="tk" text-anchor="end">${lab}</text>`;
+      }
+    }
+  }
+  s += `<line x1="${sx(1)}" y1="${sy(1)}" x2="${sx(10 ** hi)}" y2="${sy(10 ** hi)}" class="diag"/>`;
+  s += `<text x="${sx(10 ** hi) - 6}" y="${sy(1) - 8}" class="zl" text-anchor="end">event before response</text>`;
+  s += `<text x="${(m.l + W - m.r) / 2}" y="${H - 6}" class="at" text-anchor="middle">Operator response time (min, log scale)</text>`;
+  s += `<text transform="translate(16 ${(m.t + H - m.b) / 2}) rotate(-90)" class="at" text-anchor="middle">Time to event (min, log scale)</text>`;
+  for (const g of groups.sort((a, b) => b.idx.length - a.idx.length)) {
+    const bad = g.te <= g.rt, r = Math.min(11, 4.5 + 2.2 * Math.sqrt(g.idx.length - 1));
+    const names = g.idx.slice(0, 6).map(i => esc(S.rows[i][S.TAG] + (S.rows[i][S.TYPE] ? '.' + S.rows[i][S.TYPE] : ''))).join('<br>');
+    const tip = `<b>${g.idx.length} HMA${g.idx.length > 1 ? 's' : ''}</b><br>${names}${g.idx.length > 6 ? `<br>+${g.idx.length - 6} more` : ''}<br>Response ${mins(g.rt)} · time to event ${mins(g.te)}<br>Margin ${g.te - g.rt < 0 ? '−' : ''}${mins(Math.abs(g.te - g.rt))}`;
+    const flt = g.idx.length === 1 ? ` data-open="${g.idx[0]}"` : '';
+    s += `<circle cx="${sx(g.rt).toFixed(1)}" cy="${sy(g.te).toFixed(1)}" r="${r.toFixed(1)}" class="pt ${bad ? 'bad' : ''}" data-tip="${esc(tip)}"${flt}/>`;
+  }
+  return s + '</svg>';
+}
+function openAlarm(ri){
+  const r = S.rows[ri];
+  filters['Highly.Managed.Alarm'] = new Set(['HMA']);
+  query = r[S.TAG]; $('q').value = query;
+  setTab('alarms', true);
+  openDrawer(ri);
+}
+
 function otherNote(rest, what){
   if (!rest.length) return '';
   const e = rest.reduce((a, [, v]) => a + v.e, 0), d = rest.reduce((a, [, v]) => a + v.d, 0);
@@ -1205,6 +1543,10 @@ function barsHTML(items, opts = {}){
   host.addEventListener('mouseleave', () => tip.style.display = 'none');
   host.addEventListener('click', e => {
     if (e.target.closest('[data-ref], .std')) { tip.style.display = 'none'; openRef(); return; }
+    const sv = e.target.closest('[data-sv]');
+    if (sv) { statView = sv.dataset.sv; store.set('statView', statView); tip.style.display = 'none'; renderStats(); $('stats').scrollTop = 0; return; }
+    const op = e.target.closest('[data-open]');
+    if (op) { tip.style.display = 'none'; openAlarm(+op.dataset.open); return; }
     const t = e.target.closest('[data-flt]'); if (!t) return;
     tip.style.display = 'none';
     for (const [k, v] of JSON.parse(t.dataset.flt)) filters[k] = new Set([v]);
@@ -1320,6 +1662,11 @@ addEventListener('drop', e => { const f = e.dataTransfer && e.dataTransfer.files
 
 if (store.get('theme', 'dark') === 'light') document.documentElement.classList.add('light');
 $('refClose').addEventListener('click', closeRef);
+$('btnRemove').addEventListener('click', openRemove);
+$('rmCancel').addEventListener('click', closeRemove);
+$('rmOk').addEventListener('click', removeImport);
+$('rmModal').addEventListener('click', e => { if (e.target.id === 'rmModal') closeRemove(); });
+restoreImport();
 $('refModal').addEventListener('click', e => { if (e.target.id === 'refModal') closeRef(); });
 $('btnTheme').addEventListener('click', () => {
   const l = document.documentElement.classList.toggle('light'); store.set('theme', l ? 'light' : 'dark');
